@@ -2,7 +2,7 @@
   "name": "sys-intel",
   "productName": "SysIntel",
   "version": "1.0.0",
-  "description": "Simple starter package for Electron apps",
+  "description": "Monitor your system cpu",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
