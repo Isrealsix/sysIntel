@@ -1,6 +1,6 @@
 {
-  "name": "electron-starter",
-  "productName": "APP NAME",
+  "name": "sys-intel",
+  "productName": "SysIntel",
   "version": "1.0.0",
   "description": "Simple starter package for Electron apps",
   "main": "main.js",
@@ -14,10 +14,10 @@
   "keywords": [
     "Electron"
   ],
-  "author": "Brad Traversy",
+  "author": "@Isrealsix",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^9.0.0",
+    "electron": "^27.0.0",
     "electron-packager": "^14.2.1",
     "nodemon": "^2.0.3"
   },
