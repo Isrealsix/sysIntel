@@ -5,12 +5,8 @@ const mem = osu.mem
 const os = osu.os
 
 let cpuOverload = 5
+let alertFrequency = 1
 
-notifyUser({
-  title: 'CPU Overload',
-  body: `CPU is over ${cpuOverload}`,
-  icon: path.join(__dirname, 'img', 'icon.png')
-})
 //Run every 2 sec
 setInterval(() => {
   // CPU Usage
@@ -20,10 +16,21 @@ setInterval(() => {
     progressBar.style.width = info + '%'
 
     // make progressbar red if overload
-    if (info > cpuOverload) {
+    if (info >= cpuOverload) {
       progressBar.style.background = 'red'
     } else {
       progressBar.style.background = '#30c88b'
+    }
+
+    // Check overload
+    if (info >= cpuOverload && runNotify(alertFrequency)) {
+      notifyUser({
+        title: 'CPU Overload',
+        body: `CPU is over ${cpuOverload}`,
+        icon: path.join(__dirname, 'img', 'icon.png')
+      })
+
+      localStorage.setItem('lastNotify', +new Date())
     }
   })
 
@@ -62,4 +69,22 @@ function secondsToDhms(seconds) {
 // Send notification
 function notifyUser(options) {
   new Notification(options.title, options)
+}
+
+// Check how much time has passed since notification
+function runNotify(frequency) {
+  if (localStorage.getItem('lastNotify') == null) {
+    // Store item
+    localStorage.setItem('lastNotify', +new Date())
+    return true
+  }
+  const notifyTime = new Date(parseInt(localStorage.getItem('lastNotify')))
+  const now = new Date()
+  const diffTime = Math.abs(now - notifyTime)
+  const munutesPassed = Math.ceil(diffTime / (1000 * 60))
+  if (munutesPassed > frequency) {
+    return true
+  } else {
+    return false
+  }
 }
