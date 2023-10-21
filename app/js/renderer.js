@@ -37,3 +37,9 @@ function showAlert(msg) {
     alert.classList.add('hide')
   }, 3000);
 }
+
+// Toggle nav
+ipcRend.on('nav:toggle', ev => {
+  const nav = document.getElementById('nav')
+  nav.classList.toggle('hide')
+})
