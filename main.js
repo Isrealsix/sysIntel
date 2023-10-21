@@ -29,6 +29,8 @@ function createMainWindow() {
     height: 500,
     icon: `${__dirname}/assets/icons/icon.png`,
     resizable: isDev ? true : false,
+    show: true,
+    opacity: 0.9,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
