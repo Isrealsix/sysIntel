@@ -1,8 +1,8 @@
-const { ipcRenderer } = require('electron');
+const { ipcRenderer: ipcRend } = require('electron'); // TBR
 const settingsForm = document.getElementById('settings-form');
 
 // Get settings
-ipcRenderer.on('settings:get', (e, settings) => {
+ipcRend.on('settings:get', (e, settings) => {
   const cpuOverload = document.getElementById('cpu-overload')
   const alertFrequency = document.getElementById('alert-frequency')
 
