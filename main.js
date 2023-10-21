@@ -1,6 +1,6 @@
 const path = require('path')
-const { app, BrowserWindow, Menu, ipcMain, Tray } = require('electron')
-const log = require('electron-log')
+const { app, BrowserWindow, Menu, Tray, ipcMain } = require('electron')
+// const log = require('electron-log')
 const Store = require('./Store');
 const MainWindow = require('./MainWindow')
 // Set env
@@ -51,6 +51,7 @@ app.on('ready', () => {
   const icon = path.join(__dirname, 'assets', 'icons', 'tray_icon.png')
   tray = new Tray(icon)
 
+  tray.setToolTip('SysIntel')
   tray.on('click', () => {
     if (mainWindow.isVisible() === true) {
       mainWindow.hide()
