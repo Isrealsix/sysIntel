@@ -4,7 +4,7 @@ const { app, BrowserWindow, Menu, Tray, ipcMain } = require('electron')
 const Store = require('./Store');
 const MainWindow = require('./MainWindow')
 // Set env
-process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = 'production'
 
 const isDev = process.env.NODE_ENV !== 'production' ? true : false
 const isMac = process.platform === 'darwin' ? true : false
