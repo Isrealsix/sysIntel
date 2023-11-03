@@ -2,7 +2,7 @@
   "name": "sys-intel",
   "productName": "SysIntel",
   "version": "1.0.0",
-  "description": "Monitor your system cpu",
+  "description": "Monitor your system cpu in UI",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
